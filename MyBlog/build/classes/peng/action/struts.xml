@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="peng" extends="struts-default" namespace="/">
+		<!-- 验证是否登陆的过滤器 -->
+		<interceptors>
+			<interceptor name="loginFilter" class="peng.filter.LoginFilter"></interceptor>
+		</interceptors>
+
+		<!-- 个人主页与登陆登出 -->
+		<action name="homePage" class="homePageAction">
+			<result name="success">/homePage.jsp</result>
+		</action>
+		<action name="doLogin" class="homePageAction" method="doLogin">
+			<result name="success">/homePage.jsp</result>
+			<result name="fail">/login.jsp</result>
+		</action>
+		<action name="doLogout" class="homePageAction" method="doLogout">
+			<result name="success" type="redirectAction">homePage</result>
+		</action>
+
+		<!-- 上传图片 -->
+		<action name="addPicturePage" class="addPictureAction" method="gotoPage">
+			<!-- 做登陆过滤 -->
+			<interceptor-ref name="loginFilter"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/addPicture.jsp</result>
+			<result name="false">/login.jsp</result>
+		</action>
+		<action name="addPicture" class="addPictureAction">
+			<result name="success">/addPicture.jsp</result>
+		</action>
+
+		<!-- 留言板 -->
+		<action name="message" class="messageAction">
+			<result name="success">/message.jsp</result>
+		</action>
+		<action name="addMessage" class="messageAction" method="addMessage">
+			<result name="success">/message.jsp</result>
+		</action>
+		<action name="messageSet" class="messageAction" method="messageSet">
+			<!-- 做登陆过滤 -->
+			<interceptor-ref name="loginFilter"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/messageSet.jsp</result>
+			<result name="false">/login.jsp</result>
+		</action>
+		<action name="messageDele" class="messageAction" method="messageDele">
+			<result name="success" type="redirectAction">message</result>
+		</action>
+
+		<!-- 关于我 -->
+		<action name="aboutMe" class="aboutMeAction">
+			<result name="success">/aboutMe.jsp</result>
+		</action>
+		<action name="aboutMeUpdate" class="aboutMeAction" method="aboutMeUpdate">
+			<!-- 做登陆过滤 -->
+			<interceptor-ref name="loginFilter"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success1">/aboutMeUpdate.jsp</result>
+			<result name="success2" type="redirectAction">aboutMe</result>
+			<result name="false">/login.jsp</result>
+		</action>
+
+		<!-- 文章列表 -->
+		<action name="article" class="articleAction">
+			<result name="success">/articleList.jsp</result>
+		</action>
+		<action name="oneArticle" class="articleAction" method="getOneArticle">
+			<result name="OneArticle">/oneArticle.jsp</result>
+		</action>
+		<action name="articleUpdatePage" class="articleAction" method="articleUpdatePage">
+			<!-- 做登陆过滤 -->
+			<interceptor-ref name="loginFilter"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/oneArticleUpdate.jsp</result>
+			<result name="false">/login.jsp</result>
+		</action>
+		<action name="articleUpdate" class="articleAction" method="articleUpdate">
+			<result name="Update" type="redirectAction">article</result>
+		</action>
+		<action name="articleDelete" class="articleAction" method="articleDelete">
+			<result name="Delete" type="redirectAction">article</result>
+		</action>
+	</package>
+</struts>

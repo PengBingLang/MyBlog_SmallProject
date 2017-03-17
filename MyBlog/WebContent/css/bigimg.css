@@ -1,0 +1,19 @@
+/**整体**/
+.container{width:100%;height:100%;display:none;position:fixed;top:0;left:0;z-index:100;background:#FDC2FC;padding:20px 0 0 0}
+/**关闭区**/
+.close_div{margin:0 auto;background:#fff;text-align:right;padding:10px 0 0 0;}
+/**图片区**/
+.content{background:#fff;margin:0 auto;position:relative;}
+.content .img{position:absolute;top:0;left:0;z-index:105}
+.content span{position:absolute;left:45%;top:40%;}
+/**左右箭头**/
+.content .left,.content .right{position:absolute;top:0;z-index:110;}
+.content .left{left:0;cursor:url(../images/cur-left1.png), auto; }
+.content .right{right:0;cursor:url(../images/cur-right1.png), auto;}
+/**底部区**/
+.bottom{height:0px;background:#fff;margin:0 auto;overflow:hidden;line-height:30px;}
+
+/**提示框弹出层**/
+.pop{
+    z-index: 1000;
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 第一部分，配置数据库信息，必须的 -->
+		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
+			<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Struts2Test</property> 
+			<property name="hibernate.connection.username">root</property> <property 
+			name="hibernate.connection.password">123456</property> -->
+
+		<!-- 第二部分，配置hibernate信息，可选的 -->
+		<!-- 输出底层sql语句 -->
+		<property name="hibernate.show_sql">true</property>
+
+		<!-- 对输出的sql语句进行格式化 -->
+		<!-- <property name="hibernate.format_sql">true</property> -->
+
+		<!-- 配置hibernate帮我们创建表，update表示更新表 -->
+		<!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+
+		<!-- 配置数据库方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<!-- 配置session与本地线程绑定 -->
+		<!-- <property name="hibernate.current_session_context_class">thread</property> -->
+
+		<!-- 第三部分，导入映射配置文件，必须的 -->
+		<mapping resource="peng/entity/User.hbm.xml" />
+		<mapping resource="peng/entity/UserInfo.hbm.xml" />
+		<mapping resource="peng/entity/Message.hbm.xml" />
+		<mapping resource="peng/entity/Article.hbm.xml" />
+		<mapping resource="peng/entity/Picture.hbm.xml" />
+
+	</session-factory>
+</hibernate-configuration>

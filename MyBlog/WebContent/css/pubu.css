@@ -1,0 +1,81 @@
+/* clearfix */
+.clearfix {
+	clear:both;
+}
+/* wrapper css */
+#wrapper{
+    margin-bottom: 20px;
+	width:100%;
+}
+#wrapper hgroup{
+	text-align:center;
+}
+
+#container{
+	position:relative;
+	margin:0 auto 25px;
+	padding-bottom: 10px;
+	
+}
+.grid{
+	width:188px;
+	min-height:100px;
+	padding: 10px;
+	background:#fff;
+	margin:8px 8px 8px 0;
+	font-size:12px;
+	float:left;
+	box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-webkit-transition: top 1s ease, left 1s ease;
+	-moz-transition: top 1s ease, left 1s ease;
+	-o-transition: top 1s ease, left 1s ease;
+	-ms-transition: top 1s ease, left 1s ease;
+}
+
+.grid strong {
+	border-bottom:1px solid #ccc;
+	margin:10px 0;
+	display:block;
+	padding:0 0 5px;
+	font-size:17px;
+}
+.grid .meta{
+	text-align:right;
+	color:#777;
+	font-style:italic;
+}
+.grid .imgholder img{
+	max-width:100%;
+	background:#ccc;
+	display:block;
+	background:url(../images/loding.gif) no-repeat center;
+    cursor: pointer;
+}
+
+@media screen and (max-width : 1240px) {
+	body{
+		overflow:auto;
+	}
+}
+@media screen and (max-width : 900px) {
+	#wrapper{
+		margin-top:90px;
+	}
+}
+
+/**加载更多 add by liyanqiu**/
+.load_more{
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    color: #65686F;
+	background:#eee;
+}
+.load_more:hover{
+    background:#F89F96;
+}

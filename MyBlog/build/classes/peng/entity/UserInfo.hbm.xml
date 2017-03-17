@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- 配置表的映射 -->
+	<class name="peng.entity.UserInfo" table="userInfo">
+		<!-- 配置主键的映射 -->
+		<id name="userID" column="UserID">
+			<!-- 指定主键的生成策略 -->
+			<generator class="native"></generator>
+		</id>
+		<!-- 配置其他字段的映射 -->
+		<property name="realName" column="RealName"></property>
+		<property name="sex" column="Sex"></property>
+		<property name="birth" column="Birth"></property>
+		<property name="email" column="Email"></property>
+		<property name="tell" column="Tell"></property>
+		<property name="qQNum" column="QQNum"></property>
+		<property name="image" column="Image"></property>
+		<property name="selfIntroduction" column="SelfIntroduction"></property>
+		<property name="slefWord" column="SlefWord"></property>
+	</class>
+</hibernate-mapping>

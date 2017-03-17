@@ -1,0 +1,281 @@
+$screen-sm-min: 860px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+@mixin breakpoint($point) {
+  @if $point == $screen-sm-min {
+    @media screen and (min-width: $screen-sm-min) { @content; }
+  }
+  @elseif $point == $screen-md-min {
+    @media screen and (min-width: $screen-md-min) { @content; }
+  }
+  @elseif $point == $screen-lg-min {
+    @media screen and (min-width: $screen-lg-min) { @content; }
+  }
+}
+
+body {
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+}
+
+.intro-container {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: white;
+	text-align: center;
+	margin: 0 auto;
+	right: 0;
+	left: 0;
+}
+
+h1 {
+	font-family: 'brandon-grotesque', sans-serif;
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 0;
+	font-size: 20px;
+
+	@include breakpoint($screen-sm-min){
+		font-size: 40px;
+		line-height: 52px;
+	}
+}
+
+.fancy-text {
+	font-family: "adobe-garamond-pro",sans-serif;
+	font-style: italic;
+	letter-spacing: 1px;
+	margin-bottom: 17px;
+}
+
+.button {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	font-family: 'brandon-grotesque', sans-serif;
+	text-transform: uppercase;
+	min-width: 200px;
+	margin-top: 30px;
+
+	&:hover {
+		.border {
+			box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
+			.left-plane, .right-plane {
+				transform: translateX(0%);
+			}
+		}
+
+		.text {
+			color: #121212;
+		}
+	}
+
+	.border {
+		border: 1px solid white;
+		transform: skewX(-20deg);
+		height: 32px;
+		border-radius: 3px;
+		overflow: hidden;
+		position: relative;
+		transition: .10s ease-out;
+
+		.left-plane, .right-plane {
+			position: absolute;
+			background: white;
+			height: 32px;
+			width: 100px;
+			transition: .15s ease-out;
+		}
+
+		.left-plane {
+			left: 0;
+			transform: translateX(-100%);
+		}
+
+		.right-plane {
+			right: 0;
+			transform: translateX(100%);
+		}
+	}
+
+	.text {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: .15s ease-out;
+	}
+}
+
+.x-mark {
+	right: 10px;
+	top: 10px;
+	position: absolute;
+	cursor: pointer;
+	opacity: 0;
+	
+	&:hover {
+		.right {
+			transform: rotate(-45deg) scaleY(1.2);
+		}
+
+		.left {
+			transform: rotate(45deg) scaleY(1.2);
+		}
+	}
+
+	.container {
+		position: relative;
+		width: 20px;
+		height: 20px;
+	}
+
+	.left, .right {
+		width: 2px;
+		height: 20px;
+		background: white;
+		position: absolute;
+		border-radius: 3px;
+		transition: .15s ease-out;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+	}
+
+	.right {
+		transform: rotate(-45deg);
+	}
+
+	.left {
+		transform: rotate(45deg);
+	}
+}
+
+.sky-container {
+	position: absolute;
+	color: white;
+	text-transform: uppercase;
+	margin: 0 auto;
+	right: 0;
+	left: 0;
+	top: 2%;
+	text-align: center;
+	opacity: 0;
+	@include breakpoint($screen-sm-min){
+		top: 18%;
+		right: 12%;
+		left: auto;
+	}
+
+	&__left, &__right {
+		display: inline-block;	
+		vertical-align: top;
+		font-weight: bold;
+
+		h2 {
+			font-family: 'brandon-grotesque', sans-serif;
+			font-size: 26px;
+			line-height: 26px;
+			margin: 0;
+			@include breakpoint($screen-sm-min){
+				font-size: 72px;
+				line-height: 68px;
+			}
+		}
+		
+	}
+
+	&__left {
+		margin-right: 5px;
+	}
+
+	.thirty-one {
+		letter-spacing: 4px;
+	}
+
+}
+
+.text-right {
+	text-align: right;	
+}
+
+.text-left {
+	text-align: left;
+}
+
+
+// Twitter
+.twitter {
+  &:hover {
+    a {
+      transform: rotate(-45deg) scale(1.05);
+    }
+    
+    i {
+      color: lighten(#00ACED, 10%);
+    }
+  }
+  
+  a {
+    bottom: -40px;
+    right: -75px;
+    transform: rotate(-45deg);
+  }
+  
+  i {
+    bottom: 7px;
+    right: 7px;
+    color: #00ACED;
+  }
+}
+
+.social-icon {
+  a {
+    position: absolute;
+    background: white;
+    color: white;
+    box-shadow: -1px -1px 20px 0px rgba(0,0,0,0.30);
+    display: inline-block;
+    width: 150px;
+    height: 80px;  
+    transform-origin: 50% 50%;
+    transition: .15s ease-out;
+  }
+  
+  i {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+    transition: .15s ease-out;
+  }
+}
+
+// YouTube 
+
+.youtube {
+  &:hover {
+    a {
+      transform: rotate(45deg) scale(1.05);
+    }
+    
+    i {
+      color: lighten(#E62117, 10%);
+    }
+  }
+  
+  a {
+    bottom: -40px;
+    left: -75px;
+    transform: rotate(45deg);
+  }
+  
+  i {
+    bottom: 7px;
+    left: 7px;
+    color: #E62117;
+  }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- 配置表的映射 -->
+	<class name="peng.entity.Article" table="article">
+		<!-- 配置主键的映射 -->
+		<id name="ArticleID" column="ArticleID">
+			<!-- 指定主键的生成策略 -->
+			<generator class="native"></generator>
+		</id>
+		<!-- 配置其他字段的映射 -->
+		<property name="UserID" column="UserID"></property>
+		<property name="title" column="title"></property>
+		<property name="content" column="content"></property>
+		<property name="author" column="author"></property>
+		<property name="type" column="type"></property>
+		<property name="labal" column="labal"></property>
+		<property name="time" column="time"></property>
+		<property name="image" column="image"></property>
+		<property name="scan" column="scan"></property>
+		<property name="comment" column="comment"></property>
+	</class>
+</hibernate-mapping>

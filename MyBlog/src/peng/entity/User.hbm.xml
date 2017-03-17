@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- 配置表的映射 -->
+	<class name="peng.entity.User" table="user">
+		<!-- 配置主键的映射 -->
+		<id name="userID" column="UserID">
+			<!-- 指定主键的生成策略 -->
+			<generator class="native"></generator>
+		</id>
+		<!-- 配置其他字段的映射 -->
+		<property name="userName" column="UserName"></property>
+		<property name="userPWD" column="UserPWD"></property>
+		<property name="registerTime" column="RegisterTime"></property>
+	</class>
+</hibernate-mapping>

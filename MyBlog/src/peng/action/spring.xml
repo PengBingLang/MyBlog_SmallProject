@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- 配置个人主页的action -->
+	<bean id="homePageAction" class="peng.action.HomePageAction"
+		scope="prototype">
+		<property name="homePageService" ref="homePageService"></property>
+	</bean>
+	<bean id="homePageService" class="peng.service.HomePageService">
+		<property name="homePageDao" ref="homePageDao"></property>
+	</bean>
+	<bean id="homePageDao" class="peng.dao.HomePageDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+
+	<!-- 上传图片的Action -->
+	<bean id="addPictureAction" class="peng.action.AddPictureAction"
+		scope="prototype">
+		<property name="addPictureService" ref="addPictureService"></property>
+	</bean>
+	<bean id="addPictureService" class="peng.service.AddPictureService">
+		<property name="addPictureDao" ref="addPictureDao"></property>
+	</bean>
+	<bean id="addPictureDao" class="peng.dao.AddPictureDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+
+	<!-- 留言版的action -->
+	<bean id="messageAction" class="peng.action.MessageAction" scope="prototype">
+		<property name="messageService" ref="messageService"></property>
+	</bean>
+	<bean id="messageService" class="peng.service.MessageService">
+		<property name="messageDao" ref="messageDao"></property>
+	</bean>
+	<bean id="messageDao" class="peng.dao.MessageDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- 关于我的action -->
+	<bean id="aboutMeAction" class="peng.action.AboutMeAction" scope="prototype">
+		<property name="aboutMeService" ref="aboutMeService"></property>
+	</bean>
+	<bean id="aboutMeService" class="peng.service.AboutMeService">
+		<property name="aboutMeDao" ref="aboutMeDao"></property>
+	</bean>
+	<bean id="aboutMeDao" class="peng.dao.AboutMeDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+
+	<!-- 博文列表的action -->
+	<bean id="articleAction" class="peng.action.ArticleAction" scope="prototype">
+		<property name="articleService" ref="articleService"></property>
+	</bean>
+	<bean id="articleService" class="peng.service.ArticleService">
+		<property name="articleDao" ref="articleDao"></property>
+	</bean>
+	<bean id="articleDao" class="peng.dao.ArticleDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+</beans>
